@@ -1,0 +1,86 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	animation-duration: 34s;
+}
+
+audio{
+	position: absolute;
+	left: 50%;
+	top: 2.5%;
+	height: 5%;
+	transform: translate(-50%,0);
+}
+
+@keyframes color{
+	from{
+		background: rgb(255,255,255);
+	}
+	to{
+		background: rgb(244, 194, 194);
+	}
+}
+
+@keyframes color2{
+	from{
+		color: rgb(0,0,0);
+	}
+	to{
+		color: rgb(255, 0, 0);
+	}
+}
+
+div#text{
+	position: absolute;
+	bottom: 2%;
+	font-size: 2em;
+	left: 50%;
+	transform: translate(-50%,0);
+	animation-duration: 34s;
+
+}
+
+div#img{
+	display: grid;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%);
+	width: 30%;
+	aspect-ratio: 1;
+	border: 1px solid;
+	animation-duration: 34s;
+	animation-timing-function: linear;
+	
+	overflow: hidden;
+}
+@keyframes getbig{
+	0% {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	}
+	17.6%{
+		grid-template-columns: 1fr 1fr 1.1fr 1fr 1fr;
+	}
+	35.3%{
+		grid-template-columns: 1fr 1fr 2fr 1fr 1fr ;
+	}
+	50%{
+		grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
+	}
+	76.47% {
+		grid-template-columns: 1fr 1fr 10fr 1fr 1fr;
+	}
+	81.99%{
+		grid-template-columns: 1fr 1fr 20fr 1fr 1fr;
+	}
+	82% {
+		grid-template-columns: 1fr 1fr 100000fr 1fr 1fr;
+	}
+}
+img{
+	width: 100%;
+	height: 100%;
+}

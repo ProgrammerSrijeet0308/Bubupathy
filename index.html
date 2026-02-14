@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HAPPY VALENTINES DAY</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="img">
+	</div>
+	<div id="text">
+	</div>
+	<audio src="aud.mp3" autoplay type="audio/mpeg" controls></audio>
+	<script>
+		txt= document.querySelector("div#text")
+		msg="WILL YOU BE MY VALENTINE?"
+		l= msg.length
+		lst=[]
+		for(i=0;i<l;i++)
+		{
+			newChild = document.createElement('span')
+			k=(21*i)%l
+			lst.push(k)
+			newChild.textContent = msg[k]
+			txt.appendChild(newChild)
+		}
+
+		ig=document.querySelector("div#img")
+		//ig.style.gridTemplateColumns="1fr 1fr 5fr 1fr 1fr"
+		//ig.style.gridTemplateRows="1fr 1fr 1fr 1fr 1fr"
+
+		n=5
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<n;j++)
+			{
+				newChild = document.createElement('img')
+				newChild.src="img/"+(i*5+j+1)+".jpeg"
+				newChild.style.gridColumn=i+1
+				newChild.style.gridRow=j+1
+				ig.appendChild(newChild)
+			}
+		}
+
+		imgs=document.querySelectorAll("img")
+		spns=document.querySelectorAll("span")
+		t=0
+
+		aud=document.querySelector("audio")
+		bd=document.querySelector("body")
+		aud.addEventListener("play",g)
+		int1="boom"
+		function g()
+		{
+			if(int1!="boom")
+				clearInterval(int1)
+			ig.style.animationName="getbig"
+			ig.style.gridTemplateColumns= "1fr 1fr 100000fr 1fr 1fr"
+			txt.style.animationName="color2"
+			txt.style.color="rgb(255, 0, 0)"
+			bd.style.animationName="color"
+			bd.style.background="rgb(244, 194, 194)"
+			int1= setInterval(f,280)
+		}
+		function f()
+		{
+			t++
+			for(i=0;i<imgs.length;i++)
+			{
+
+				imgs[i].style.gridColumn = (imgs[i].style.gridColumn)%5+1
+				if(imgs[i].style.gridColumn==1)
+				{
+					imgs[i].style.gridRow = (imgs[i].style.gridRow)%5+1
+				}
+			}
+			for(i=0;i<spns.length;i++)
+			{
+				if(lst[i]!=i)
+				{
+
+					lst[i]=(lst[i]+21*i)%l
+					spns[i].textContent=msg[lst[i]]
+					break;
+				}				
+			}
+		}
+	</script>
+</body>
+</html>
